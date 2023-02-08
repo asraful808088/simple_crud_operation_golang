@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET USERS</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main-card {
+        width: 500px;
+        position: relative;
+        margin-top: 100px;
+      }
+
+      .main-card .content .one,
+      .all {
+        margin-top: 50px;
+      }
+      .active {
+        background-color: aqua;
+      }
+      .main-card .link {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-card">
+      <div class="link">
+        <a href="/">get</a>
+        <a href="/post">post</a>
+        <a href="/update">update</a>
+        <a href="/delete">delete</a>
+      </div>
+      <h1>Get Users</h1>
+      <div class="content">
+        <div class="all" id="all">
+          {{range $val:= .Data}}
+          <hr />
+          <div class="item">
+            <div>id :{{$val.Id}}</div>
+            <div>name :{{$val.Name}}</div>
+            <div>email :{{$val.Email}}</div>
+            <div>staff :{{$val.Staff}}</div>
+            <div>admin :{{$val.Admin}}</div>
+          </div>
+          <hr />
+          {{end}}
+        </div>
+        <div class="one" id="one">
+          <div class="search-bar">
+            <form action="" method="post">
+              <input type="text" name="email" id="" />
+              <button type="submit">Submit</button>
+            </form>
+            {{range $val:= .SingleData}}
+            <hr />
+            <div class="item">
+              <div>id :{{$val.Id}}</div>
+              <div>name :{{$val.Name}}</div>
+              <div>email :{{$val.Email}}</div>
+              <div>staff :{{$val.Staff}}</div>
+              <div>admin :{{$val.Admin}}</div>
+            </div>
+            <hr />
+            {{end}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      
+    </script>
+  </body>
+</html>
